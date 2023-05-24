@@ -1,23 +1,20 @@
-import { config as dotEnvConfig } from "dotenv";
-dotEnvConfig();
-
 import bodyParser from "body-parser";
 import express from "express";
 
-import { config } from "./config";
-import { healthRouter } from "./health/health-router";
+import { UserController } from "./interfaces/controllers/UserController";
 
-function boostrap() {
-  const app = express();
+const app = express();
+const port = 3000;
 
-  app.use(bodyParser.json());
-  app.use("/health", healthRouter);
+app.use(bodyParser.json());
 
-  const { port } = config.server;
+// Rutas de la API
+app.get("/users", UserController.getAllUsers);
+app.get("/users/:id", UserController.getUserById);
+app.post("/users", UserController.createUser);
+app.put("/users/:id", UserController.updateUser);
+app.delete("/users/:id", UserController.deleteUser);
 
-  app.listen(port, () => {
-    console.log(`[APP] - Starting application on port ${port}`);
-  });
-}
-
-boostrap();
+app.listen(port, () => {
+  console.log(`Servidor corriendo en el puerto ${port}`);
+});

@@ -39,6 +39,7 @@
     "@commitlint/config-conventional": "^17.4.2",
     "@types/express": "^4.17.15",
     "@types/jest": "^29.2.5",
+    "@types/pg": "^8.10.1",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.31.0",
@@ -60,8 +61,9 @@
     ]
   },
   "dependencies": {
-    "body-parser": "^1.20.1",
+    "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "pg": "^8.11.0"
   }
 }
